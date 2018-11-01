@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.interview.Layout.LayoutActivity">
+
+
+    <!--android:showDividers设置分割线的位置,none(无),beginning(开始),end(结束),middle(每两个组件间)-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:divider="@drawable/image"
+        android:showDividers="middle"
+        android:dividerPadding="10dp"
+        tools:context="com.jay.example.linearlayoutdemo.MainActivity" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LinearLayout" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LinearLayout" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LinearLayout" />
+    </LinearLayout>
+
+
+    <!--collapseColumns(隐藏列),隐藏第一与第三列-->
+    <!--stretchColumns(拉伸列),设置第二列为可拉伸列,让该列填满这一行所有的剩余空间-->
+    <!--shrinkColumns(收缩列),设置第二个列为可收缩列-->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:collapseColumns="0,2"
+        android:stretchColumns="1"
+        android:shrinkColumns="5">
+
+        <!--<TableRow>-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="one" />-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="two" />-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="three" />-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="four" />-->
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="five" />-->
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="six" />-->
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="seven " />-->
+        <!--</TableRow>-->
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/TableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,3"
+        android:gravity="center_vertical"
+        android:background="#66FF66">
+        <TableRow>
+            <TextView />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名:"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="150dp"/>
+            <TextView />
+        </TableRow>
+
+        <TableRow>
+            <TextView />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密  码:"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="150dp"
+                />
+            <TextView />
+        </TableRow>
+
+        <TableRow>
+            <TextView />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登陆"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退出"/>
+            <TextView />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

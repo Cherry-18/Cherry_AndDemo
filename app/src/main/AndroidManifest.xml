@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cherry.cherry_anddemo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".CherryApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.interview.webview.JsInteractionActivity" />
+        <activity
+            android:name=".ui.interview.activity.LifecycleActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+
+        <!-- android:screenOrientation="portrait" 始终以竖屏显示 -->
+        <!-- android:screenOrientation="landscape" 始终以横屏显示 -->
+        <activity android:name=".ui.interview.activity.LifecycleSecondActivity" />
+        <activity android:name=".ui.interview.activity.BindServiceActivity" />
+        <activity android:name=".ui.interview.activity.IntentServiceActivity" />
+        <activity android:name=".ui.interview.activity.CallBackServiceActivity" />
+        <activity android:name=".ui.interview.activity.FragmentActivity" />
+        <activity android:name=".ui.interview.broadcast.BroadcastActivity" />
+
+        <receiver
+            android:name=".ui.interview.broadcast.BroadcastReceiverTwo"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter> <!-- android:priority="100" -->
+                <action android:name="com.cherry.broadcast.test" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".ui.interview.broadcast.BroadcastReceiverOne"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter> <!-- android:priority="200" -->
+                <action android:name="com.cherry.broadcast.test" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".ui.interview.webview.WebViewActivity" />
+        <activity android:name=".ui.interview.handler.HandlerActivity" />
+        <activity android:name=".ui.interview.asynctask.AsyncTaskActivity" />
+        <activity android:name=".ui.interview.handlerthread.HandlerThreadActivity" />
+        <activity android:name=".ui.interview.eventdispatch.EventDispatchActivity" />
+        <activity android:name=".ui.interview.Layout.LayoutActivity" />
+        <activity android:name=".ui.interview.storage.sharepreference.SharePreferenceActivity" />
+        <activity android:name=".ui.interview.storage.sqlite.SqliteActivity" />
+        <activity android:name=".ui.interview.database.greendao.GreendaoActivity"></activity>
+    </application>
+
+</manifest>
