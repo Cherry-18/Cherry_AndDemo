@@ -16,10 +16,6 @@ import com.cherry.cherry_anddemo.ui.interview.webview.JsInteractionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * hahahhaha
-     * @param savedInstanceState
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
