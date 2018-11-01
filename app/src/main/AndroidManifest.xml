@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
     <application
         android:name=".CherryApplication"
@@ -16,6 +18,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="59643a2565b6d6726000038d"></meta-data>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,7 +61,6 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.interview.webview.WebViewActivity" />
         <activity android:name=".ui.interview.handler.HandlerActivity" />
         <activity android:name=".ui.interview.asynctask.AsyncTaskActivity" />
         <activity android:name=".ui.interview.handlerthread.HandlerThreadActivity" />

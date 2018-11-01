@@ -18,6 +18,15 @@ android {
         }
     }
 
+    signingConfigs {
+        keystore1 {
+            storeFile file(STOER_FILE_NAME)
+            storePassword KEYSTORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
+    }
+
     sourceSets {
         main.jniLibs.srcDirs = ['libs']
         main {
@@ -28,6 +37,19 @@ android {
                            'src/main/res/item',
                            'src/main/res/header',
                            'src/main/res/']
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.keystore1
+            minifyEnabled false
+        }
+        release {
+            signingConfig signingConfigs.keystore1
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -54,6 +76,6 @@ dependencies {
     implementation 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.4.0'
 
     //OrmLite
-    compile 'com.j256.ormlite:ormlite-android:5.0'
-    compile 'com.j256.ormlite:ormlite-core:5.0'
+    implementation 'com.j256.ormlite:ormlite-android:5.0'
+    implementation 'com.j256.ormlite:ormlite-core:5.0'
 }
