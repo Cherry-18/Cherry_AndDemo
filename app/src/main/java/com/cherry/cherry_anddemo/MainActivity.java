@@ -20,10 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cherry_activity_main);
-
-/***
- * jjijpjoe
- */
         findViewById(R.id.tv_js_android).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
