@@ -7,8 +7,19 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- 定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".CherryApplication"
@@ -18,10 +29,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="59643a2565b6d6726000038d"></meta-data>
+            android:value="59643a2565b6d6726000038d" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="KpidDPFKzQUiOZPHPxiFzWvobZxQ9oHT" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -68,7 +81,13 @@
         <activity android:name=".ui.interview.Layout.LayoutActivity" />
         <activity android:name=".ui.interview.storage.sharepreference.SharePreferenceActivity" />
         <activity android:name=".ui.interview.storage.sqlite.SqliteActivity" />
-        <activity android:name=".ui.interview.database.greendao.GreendaoActivity"></activity>
+        <activity android:name=".ui.interview.database.greendao.GreendaoActivity" />
+        <activity android:name=".ui.interview.map.LocationActivity" />
+        <activity android:name=".ui.interview.map.MapActivity" />
+        <activity android:name=".ui.interview.MVVM.MVVMActivity" />
+        <activity android:name=".ui.interview.observer.eventbus.FirstActivity" />
+        <activity android:name=".ui.interview.observer.eventbus.SecondActivity" />
+        <activity android:name=".ui.interview.observer.eventbus.ThirdActivity"></activity>
     </application>
 
 </manifest>

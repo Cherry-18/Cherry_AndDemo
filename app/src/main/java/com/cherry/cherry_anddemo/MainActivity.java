@@ -11,6 +11,9 @@ import com.cherry.cherry_anddemo.ui.interview.broadcast.BroadcastActivity;
 import com.cherry.cherry_anddemo.ui.interview.eventdispatch.EventDispatchActivity;
 import com.cherry.cherry_anddemo.ui.interview.handler.HandlerActivity;
 import com.cherry.cherry_anddemo.ui.interview.handlerthread.HandlerThreadActivity;
+import com.cherry.cherry_anddemo.ui.interview.map.LocationActivity;
+import com.cherry.cherry_anddemo.ui.interview.map.MapActivity;
+import com.cherry.cherry_anddemo.ui.interview.observer.eventbus.FirstActivity;
 import com.cherry.cherry_anddemo.ui.interview.storage.sqlite.SqliteActivity;
 import com.cherry.cherry_anddemo.ui.interview.webview.JsInteractionActivity;
 
@@ -66,6 +69,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivityOther(SqliteActivity.class);
+            }
+        });
+        findViewById(R.id.btn_location_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityOther(LocationActivity.class);
+            }
+        });
+        findViewById(R.id.btn_map_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityOther(MapActivity.class);
+            }
+        });
+        findViewById(R.id.btn_first_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityOther(FirstActivity.class);
             }
         });
     }

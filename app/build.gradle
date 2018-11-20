@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin:'org.greenrobot.greendao'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 28
@@ -11,20 +11,19 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 
     signingConfigs {
         keystore1 {
-            storeFile file(STOER_FILE_NAME)
-            storePassword KEYSTORE_PASSWORD
-            keyAlias KEY_ALIAS
-            keyPassword KEY_PASSWORD
+            storeFile file('/Users/bkjk/cherry_and.jks')
+            storePassword '123456'
+            keyAlias 'cherry'
+            keyPassword '123456'
         }
+    }
+
+    //对于双向绑定，刚好可以使用DataBinding，DataBinding是一个实现数据和UI绑定的框架，是构建MVVM模式的一个关键的工具。
+    dataBinding {
+        enabled true
     }
 
     sourceSets {
@@ -47,13 +46,13 @@ android {
         }
         release {
             signingConfig signingConfigs.keystore1
-            minifyEnabled true
+            minifyEnabled true  //是否开启混淆
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
-    greendao{
+    greendao {
         schemaVersion 1
         daoPackage 'com.cherry.cherry_anddemo.ui.interview.database.greendao.gen'
         targetGenDir 'src/main/java'
@@ -62,14 +61,13 @@ android {
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.android.support:support-v4:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     //GreenDao
     implementation 'org.greenrobot:greendao:3.1.0'
     implementation 'org.greenrobot:greendao-generator:3.1.0'
@@ -78,4 +76,11 @@ dependencies {
     //OrmLite
     implementation 'com.j256.ormlite:ormlite-android:5.0'
     implementation 'com.j256.ormlite:ormlite-core:5.0'
+
+    //baidumap
+    implementation files('libs/BaiduLBS_Android.jar')
+
+    //eventbus
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
 }

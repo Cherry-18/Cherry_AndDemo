@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".ui.interview.observer.eventbus.SecondActivity">
+
+    <TextView
+        android:id="@+id/tv_observer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tv_observer2"/>
+
+
+    <TextView
+        android:id="@+id/tv_go_threeactivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tv_go_threeactivity"
+        android:layout_marginTop="20dp"/>
+
+
+    <Button
+        android:id="@+id/tv_send_eventbus_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tv_send_eventbus_msg"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/tv_send_sticky_eventbus_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tv_send_sticky_eventbus_msg"
+        android:layout_marginTop="20dp"/>
+
+
+    <Button
+        android:id="@+id/tv_register_eventbus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tv_register_eventbus"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_show_sticky_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tv_show_sticky_event"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
