@@ -87,7 +87,8 @@
         <activity android:name=".ui.interview.MVVM.MVVMActivity" />
         <activity android:name=".ui.interview.observer.eventbus.FirstActivity" />
         <activity android:name=".ui.interview.observer.eventbus.SecondActivity" />
-        <activity android:name=".ui.interview.observer.eventbus.ThirdActivity"></activity>
+        <activity android:name=".ui.interview.observer.eventbus.ThirdActivity" />
+        <activity android:name=".ui.interview.observer.rxjava.RxjavaActivity"></activity>
     </application>
 
 </manifest>

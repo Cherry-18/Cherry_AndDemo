@@ -83,4 +83,8 @@ dependencies {
     //eventbus
     implementation 'org.greenrobot:eventbus:3.0.0'
 
+    //rxjava
+    implementation 'io.reactivex:rxjava:1.0.14'
+    implementation 'io.reactivex:rxandroid:1.0.1'
+
 }
