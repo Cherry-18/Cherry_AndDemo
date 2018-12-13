@@ -7,6 +7,7 @@ import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.cherry.cherry_anddemo.ui.interview.database.greendao.gen.DaoMaster;
 import com.cherry.cherry_anddemo.ui.interview.database.greendao.gen.DaoSession;
+import com.squareup.leakcanary.LeakCanary;
 
 
 public class CherryApplication extends Application {
@@ -26,6 +27,7 @@ public class CherryApplication extends Application {
 //        SDKInitializer.setCoordType(CoordType.BD09LL);
 
         application = this;
+        LeakCanary.install(this);
     }
 
     public static CherryApplication getApplication() {

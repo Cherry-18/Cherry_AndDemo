@@ -7,6 +7,8 @@ import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Transient;
 
 /**
+ * 不需要写 getset方法，只要写上属性，然后  点击build -- make project  自动生成get set 和 dao 文件
+ *
  schema：告知GreenDao当前实体属于哪个schema
  active：标记一个实体处于活动状态，活动实体有更新、删除和刷新方法  无论是更新生成都刷新
  nameInDb：在数据中使用的别名，默认使用的是实体的类名

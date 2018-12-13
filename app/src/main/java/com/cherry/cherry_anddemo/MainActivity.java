@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
+import com.cherry.cherry_anddemo.ui.interview.activity.IntentActivity;
 import com.cherry.cherry_anddemo.ui.interview.activity.LifecycleActivity;
 import com.cherry.cherry_anddemo.ui.interview.asynctask.AsyncTaskActivity;
 import com.cherry.cherry_anddemo.ui.interview.broadcast.BroadcastActivity;
 import com.cherry.cherry_anddemo.ui.interview.eventdispatch.EventDispatchActivity;
 import com.cherry.cherry_anddemo.ui.interview.handler.HandlerActivity;
 import com.cherry.cherry_anddemo.ui.interview.handlerthread.HandlerThreadActivity;
+import com.cherry.cherry_anddemo.ui.interview.leakcanary.LeakSingle;
 import com.cherry.cherry_anddemo.ui.interview.map.LocationActivity;
 import com.cherry.cherry_anddemo.ui.interview.map.MapActivity;
 import com.cherry.cherry_anddemo.ui.interview.observer.eventbus.FirstActivity;
@@ -19,10 +22,13 @@ import com.cherry.cherry_anddemo.ui.interview.webview.JsInteractionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView mLeakTv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cherry_activity_main);
+        mLeakTv = findViewById(R.id.tv_Leak);
         findViewById(R.id.tv_js_android).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +95,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivityOther(FirstActivity.class);
             }
         });
+        findViewById(R.id.btn_intent_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, IntentActivity.class);
+                intent.putExtra("intentTest","我是intentTest");
+                startActivity(intent);
+
+            }
+        });
+
+//        leakcanary();
     }
 
     public void startActivityOther(Class clazz){
@@ -97,4 +115,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void leakcanary(){
+        LeakSingle.getInstance(this.getApplication()).setRetainedTextView(mLeakTv);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //防止内泄露
+        LeakSingle.getInstance(this.getApplication()).removeRetainedTextView();
+    }
 }

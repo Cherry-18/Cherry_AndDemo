@@ -88,7 +88,8 @@
         <activity android:name=".ui.interview.observer.eventbus.FirstActivity" />
         <activity android:name=".ui.interview.observer.eventbus.SecondActivity" />
         <activity android:name=".ui.interview.observer.eventbus.ThirdActivity" />
-        <activity android:name=".ui.interview.observer.rxjava.RxjavaActivity"></activity>
+        <activity android:name=".ui.interview.observer.rxjava.RxjavaActivity" />
+        <activity android:name=".ui.interview.activity.IntentActivity"></activity>
     </application>
 
 </manifest>

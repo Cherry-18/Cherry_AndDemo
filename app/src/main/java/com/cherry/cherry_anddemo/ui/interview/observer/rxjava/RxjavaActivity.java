@@ -83,85 +83,85 @@ public class RxjavaActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * 分步骤实现Rxjava
-     */
-    public void divideStep() {
-        io.reactivex.Observable<Integer> observable = io.reactivex.Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
-                e.onNext(1);
-                e.onNext(2);
-                e.onNext(3);
-                e.onComplete();
-            }
-        });
-
-        Observer<Integer> observer = new Observer<Integer>() {
-
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.e(TAG, "开始采用subscribe链接");
-            }
-
-            @Override
-            public void onNext(Integer value) {
-                Log.e(TAG, "开始响应" + value + "事件");
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.e(TAG, "对error事件进行响应");
-            }
-
-            @Override
-            public void onComplete() {
-                Log.e(TAG, "对complete事件进行响应");
-            }
-        };
-        observable.subscribe(observer);
-    }
-
-    private Disposable mDisposable;
-    //基于事件流的链式调用方式
-    public void eventFlow() {
-
-        io.reactivex.Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter e) throws Exception {
-                e.onNext(4);
-                e.onNext(5);
-                e.onNext(6);
-                e.onNext(7);
-                e.onError(new ClassCastException("rxjavaerror"));
-            }
-        }).subscribe(new Observer<Integer>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-                Log.e("rxjava---->eventFlow", "开始采用subscribe链接");
-                mDisposable = d;
-            }
-
-            @Override
-            public void onNext(Integer value) {
-//                Log.e("rxjava---->eventFlow", "开始响应" + value + "事件");
-                if(value==6){
-                    mDisposable.dispose();//在接受到第6个事件后切断观察者和被观察者之间的联系
-                    Log.e("rxjava---->eventFlow", "已经切断了连接" +mDisposable.isDisposed());
-                }
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onComplete() {
-                Log.e("rxjava---->eventFlow", "对complete事件进行响应");
-
-            }
-        });
-    }
+//    /**
+//     * 分步骤实现Rxjava
+//     */
+//    public void divideStep() {
+//        io.reactivex.Observable<Integer> observable = io.reactivex.Observable.create(new ObservableOnSubscribe<Integer>() {
+//            @Override
+//            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+//                e.onNext(1);
+//                e.onNext(2);
+//                e.onNext(3);
+//                e.onComplete();
+//            }
+//        });
+//
+//        Observer<Integer> observer = new Observer<Integer>() {
+//
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//                Log.e(TAG, "开始采用subscribe链接");
+//            }
+//
+//            @Override
+//            public void onNext(Integer value) {
+//                Log.e(TAG, "开始响应" + value + "事件");
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                Log.e(TAG, "对error事件进行响应");
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//                Log.e(TAG, "对complete事件进行响应");
+//            }
+//        };
+//        observable.subscribe(observer);
+//    }
+//
+//    private Disposable mDisposable;
+//    //基于事件流的链式调用方式
+//    public void eventFlow() {
+//
+//        io.reactivex.Observable.create(new ObservableOnSubscribe<Integer>() {
+//            @Override
+//            public void subscribe(ObservableEmitter e) throws Exception {
+//                e.onNext(4);
+//                e.onNext(5);
+//                e.onNext(6);
+//                e.onNext(7);
+//                e.onError(new ClassCastException("rxjavaerror"));
+//            }
+//        }).subscribe(new Observer<Integer>() {
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//                Log.e("rxjava---->eventFlow", "开始采用subscribe链接");
+//                mDisposable = d;
+//            }
+//
+//            @Override
+//            public void onNext(Integer value) {
+////                Log.e("rxjava---->eventFlow", "开始响应" + value + "事件");
+//                if(value==6){
+//                    mDisposable.dispose();//在接受到第6个事件后切断观察者和被观察者之间的联系
+//                    Log.e("rxjava---->eventFlow", "已经切断了连接" +mDisposable.isDisposed());
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                e.printStackTrace();
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//                Log.e("rxjava---->eventFlow", "对complete事件进行响应");
+//
+//            }
+//        });
+//    }
 
 }
