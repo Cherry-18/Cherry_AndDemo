@@ -2,14 +2,31 @@ apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    def buildConfigTest = ""
+    def server_host = ""
     defaultConfig {
-        applicationId "com.cherry.cherry_anddemo"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        if(SERVER_HOST.equals("test")){
+            applicationId rootProject.ext.android.applicationId_test
+        }else {
+            applicationId rootProject.ext.android.applicationId_pro
+        }
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        server_host = SERVER_HOST
+        buildConfigField("String","SERVER_HOST","\"" + server_host + "\"")
+        println("--------server_host:" + server_host + "--------")
+
+        buildConfigTest = rootProject.ext.android.buildConfigTest
+        buildConfigField("String", "BUILDCONFIGTEST", "\"" + buildConfigTest + "\"")
+
+        multiDexEnabled true //可以分dex
+        flavorDimensions "applicationId"
+        flavorDimensions "versionName"
     }
 
     signingConfigs {
@@ -36,6 +53,8 @@ android {
                            'src/main/res/item',
                            'src/main/res/header',
                            'src/main/res/']
+            java.srcDirs = ['src/main/java',
+                            'src/main/common']
         }
     }
 
@@ -52,6 +71,46 @@ android {
         }
     }
 
+    //在我看来他就是Gradle的多渠道打包，你可以在不同的包定义不同的变量，实现自己的定制化版本的需求
+//    productFlavors {
+//        Cherry_Test{
+//            "applicationId"  "com.cherry.cherry_anddemo.Cherry_Test"
+//            "versionName"    "1.0"
+//        }
+//        Cherry_Pro{
+//            "applicationId"  "com.cherry.cherry_anddemo.Cherry_Pro"
+//            "versionName"    "2.0"
+//        }
+//    }
+
+    dexOptions {//dex配置
+        threadCount java.lang.Runtime.getRuntime().availableProcessors() + 1
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+        /*additionalParameters = [//dex参数详见 dx --help
+                                '--multi-dex',//多分包
+                                '--set-max-idx-number=60000',//每个包内方法数上限
+                                '--main-dex-list='+projectDir+'/maindexlist.txt',//打包进主classes.dex的文件列表
+                                '--minimal-main-dex'//使上一句生效
+        ]*/
+    }
+
+    applicationVariants.all{ variant ->
+        variant.outputs.each{ output ->
+            def file = output.outputFile
+            String oldName = file.name
+//            if(!oldName.contains("debug")){
+//            }
+            if(oldName != null && oldName.endsWith('.apk')){
+                // 输出apk名称为XXX20160328_v1.0.0_vc10_XXXX_test.apk
+                def fileName = "cherry_${buildTime()}_v${rootProject.ext.android.versionName}.apk"
+                //output.outputFile 改为 outputFileName
+                output.apkData.outputFileName = fileName
+            }
+        }
+
+    }
+
     greendao {
         schemaVersion 1
         daoPackage 'com.cherry.cherry_anddemo.ui.interview.database.greendao.gen'
@@ -59,6 +118,9 @@ android {
     }
 }
 
+def buildTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -69,23 +131,26 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //GreenDao
-    implementation 'org.greenrobot:greendao:3.1.0'
-    implementation 'org.greenrobot:greendao-generator:3.1.0'
-    implementation 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.4.0'
+    implementation rootProject.ext.dependencies["greendao"]
+    implementation rootProject.ext.dependencies["greendao-generator"]
+    implementation rootProject.ext.dependencies["GreenDaoUpgradeHelper"]
+//    implementation 'org.greenrobot:greendao:3.1.0'
+//    implementation 'org.greenrobot:greendao-generator:3.1.0'
+//    implementation 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.4.0'
 
     //OrmLite
-    implementation 'com.j256.ormlite:ormlite-android:5.0'
-    implementation 'com.j256.ormlite:ormlite-core:5.0'
+    implementation rootProject.ext.dependencies["ormlite-android"]
+    implementation rootProject.ext.dependencies["ormlite-core"]
 
     //baidumap
     implementation files('libs/BaiduLBS_Android.jar')
 
     //eventbus
-    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation rootProject.ext.dependencies["eventbus"]
 
     //rxjava
-    implementation 'io.reactivex:rxjava:1.0.14'
-    implementation 'io.reactivex:rxandroid:1.0.1'
+    implementation rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["rxandroid"]
 
     //leakcanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.3.1' // or 1.4-beta1

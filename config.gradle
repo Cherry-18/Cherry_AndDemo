@@ -1,0 +1,35 @@
+ext{
+    android = [
+            compileSdkVersion  : 28,
+            minSdkVersion      : 15,
+            targetSdkVersion   : 28,
+            versionCode        : 1,
+            versionName        : "1.0.0",
+            applicationId_pro  : "com.cherry.cherry_anddemo",
+            applicationId_test : "com.cherry.cherry_anddemo.test",
+            buildConfigTest    : "buildConfigTest"
+    ]
+
+    gradle = [
+            buildPlugin : "3.1.1"
+    ]
+
+    //依赖统一管理方式
+    dependencies = [
+            //GreenDao
+            "greendao" : 'org.greenrobot:greendao:3.1.0',
+            "greendao-generator" : 'org.greenrobot:greendao-generator:3.1.0',
+            "GreenDaoUpgradeHelper" :'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.4.0',
+
+            //OrmLite
+            "ormlite-android" :'com.j256.ormlite:ormlite-android:5.0',
+            "ormlite-core" :'com.j256.ormlite:ormlite-core:5.0',
+
+            //eventbus
+            "eventbus" : 'org.greenrobot:eventbus:3.0.0',
+
+            //rxjava
+            "rxjava" :'io.reactivex:rxjava:1.0.14',
+            "rxandroid": 'io.reactivex:rxandroid:1.0.1'
+    ]
+}
