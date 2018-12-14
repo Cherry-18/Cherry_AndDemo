@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
+//    project.ext.setDefaultConfig project
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     def buildConfigTest = ""
     def server_host = ""
