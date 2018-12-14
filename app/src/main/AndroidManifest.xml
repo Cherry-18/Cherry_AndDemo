@@ -89,7 +89,11 @@
         <activity android:name=".ui.interview.observer.eventbus.SecondActivity" />
         <activity android:name=".ui.interview.observer.eventbus.ThirdActivity" />
         <activity android:name=".ui.interview.observer.rxjava.RxjavaActivity" />
-        <activity android:name=".ui.interview.activity.IntentActivity"></activity>
+        <activity android:name=".ui.interview.activity.IntentActivity" />
+        <activity android:name=".ui.moduletest.ModuleTestActivity" />
+        <activity android:name=".test.MainActivity33" />
+        <activity android:name=".test.MainActivity23" />
+        <activity android:name="com.cherry.common.MainooActivity"></activity>
     </application>
 
 </manifest>

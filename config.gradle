@@ -4,12 +4,12 @@
 //    setDefaultConfig = { extension ->
 //        //相对于APP中的build.gradle android {}的内容
 //        extension.android{
-//            compileSdkVersion rootProject.compileSdkVersion
+//            compileSdkVersion android[compileSdkVersion]
 //            defaultConfig {
-//                minSdkVersion rootProject.minSdkVersion
-//                targetSdkVersion rootProject.targetSdkVersion
-//                versionCode rootProject.versionCode
-//                versionName rootProject.versionName
+//                minSdkVersion android[minSdkVersion]
+//                targetSdkVersion android[targetSdkVersion]
+//                versionCode android[versionCode]
+//                versionName android[versionName]
 //
 //                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 //
@@ -17,11 +17,15 @@
 //        }
 //
 //    }
-//
 //}
 
 
 ext{
+
+    isModule = false    //表示整个app运行, true: 表示单独运行某一个module
+    moduleshop = false  //false:作为Lib组件存在，true:作为application存在(其他 module同理)
+    modulepay = true
+
     android = [
             compileSdkVersion  : 28,
             minSdkVersion      : 15,

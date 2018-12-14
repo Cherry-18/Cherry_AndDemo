@@ -7,9 +7,9 @@ android {
     def buildConfigTest = ""
     def server_host = ""
     defaultConfig {
-        if(SERVER_HOST.equals("test")){
+        if (SERVER_HOST.equals("test")) {
             applicationId rootProject.ext.android.applicationId_test
-        }else {
+        } else {
             applicationId rootProject.ext.android.applicationId_pro
         }
         minSdkVersion rootProject.ext.android.minSdkVersion
@@ -19,7 +19,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         server_host = SERVER_HOST
-        buildConfigField("String","SERVER_HOST","\"" + server_host + "\"")
+        buildConfigField("String", "SERVER_HOST", "\"" + server_host + "\"")
         println("--------server_host:" + server_host + "--------")
 
         buildConfigTest = rootProject.ext.android.buildConfigTest
@@ -47,15 +47,15 @@ android {
     sourceSets {
         main.jniLibs.srcDirs = ['libs']
         main {
+            java.srcDirs = ['src/common/java', 'src/main/java']
             res.srcDirs = ['src/main/res/activity',
                            'src/main/res/broadcast',
                            'src/main/res/layouta',
                            'src/main/res/broadcast1',
                            'src/main/res/item',
                            'src/main/res/header',
-                           'src/main/res/']
-            java.srcDirs = ['src/main/java',
-                            'src/main/common']
+                           'src/main/res/',
+                           'src/common/res']
         }
     }
 
@@ -96,13 +96,13 @@ android {
         ]*/
     }
 
-    applicationVariants.all{ variant ->
-        variant.outputs.each{ output ->
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
             def file = output.outputFile
             String oldName = file.name
 //            if(!oldName.contains("debug")){
 //            }
-            if(oldName != null && oldName.endsWith('.apk')){
+            if (oldName != null && oldName.endsWith('.apk')) {
                 // 输出apk名称为XXX20160328_v1.0.0_vc10_XXXX_test.apk
                 def fileName = "cherry_${buildTime()}_v${rootProject.ext.android.versionName}.apk"
                 //output.outputFile 改为 outputFileName
@@ -161,4 +161,16 @@ dependencies {
     //butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    implementation project(':librarycommon')
+    if (!Boolean.valueOf(rootProject.ext.moduleshop)) {
+        implementation project(':libraryshop')
+    }
+    if (!Boolean.valueOf(rootProject.ext.modulepay)) {
+        implementation project(':librarypay')
+    }
+//    if (!rootProject.ext.isModule){
+//        implementation project(':libraryshop')
+//        implementation project(':librarypay')
+//    }
 }

@@ -19,6 +19,7 @@ import com.cherry.cherry_anddemo.ui.interview.map.MapActivity;
 import com.cherry.cherry_anddemo.ui.interview.observer.eventbus.FirstActivity;
 import com.cherry.cherry_anddemo.ui.interview.storage.sqlite.SqliteActivity;
 import com.cherry.cherry_anddemo.ui.interview.webview.JsInteractionActivity;
+import com.cherry.cherry_anddemo.ui.moduletest.ModuleTestActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -101,6 +102,15 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, IntentActivity.class);
                 intent.putExtra("intentTest","我是intentTest");
+                startActivity(intent);
+
+            }
+        });
+        findViewById(R.id.btn_moduletest_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, ModuleTestActivity.class);
                 startActivity(intent);
 
             }
