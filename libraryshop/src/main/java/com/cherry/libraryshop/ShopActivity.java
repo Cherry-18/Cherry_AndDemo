@@ -3,8 +3,6 @@ package com.cherry.libraryshop;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.cherry.librarypay.R;
-
 public class ShopActivity extends AppCompatActivity {
 
     @Override

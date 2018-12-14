@@ -11,8 +11,10 @@
 
      <application
          android:allowBackup="true"
-         android:label="@string/app_name"
-         android:supportsRtl="true">
+         android:label="shop"
+         android:supportsRtl="true"
+         android:icon="@drawable/ic_launcher_background"
+         android:theme="@style/AppTheme">
         <activity android:name="com.cherry.shopexample.MainShopActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
