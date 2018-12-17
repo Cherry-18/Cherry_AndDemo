@@ -3,6 +3,7 @@ package com.cherry.cherry_anddemo;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.cherry.cherry_anddemo.ui.interview.database.greendao.gen.DaoMaster;
@@ -28,6 +29,11 @@ public class CherryApplication extends Application {
 
         application = this;
         LeakCanary.install(this);
+        if (true) {           // These two lines must be written before init, otherwise these configurations will be invalid in the init process
+            ARouter.openLog();     // Print log
+            ARouter.openDebug();   // Turn on debugging mode (If you are running in InstantRun mode, you must turn on debug mode! Online version needs to be closed, otherwise there is a security risk)
+        }
+        ARouter.init(getApplication());
     }
 
     public static CherryApplication getApplication() {

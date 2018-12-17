@@ -28,6 +28,13 @@ android {
         multiDexEnabled true //可以分dex
         flavorDimensions "applicationId"
         flavorDimensions "versionName"
+
+        //ARouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
 
     signingConfigs {
@@ -173,4 +180,8 @@ dependencies {
 //        implementation project(':libraryshop')
 //        implementation project(':librarypay')
 //    }
+
+    //ARouter路由配置
+    implementation 'com.alibaba:arouter-api:1.2.4'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
 }

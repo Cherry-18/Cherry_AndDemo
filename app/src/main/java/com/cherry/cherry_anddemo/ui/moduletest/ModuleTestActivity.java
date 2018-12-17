@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.cherry.cherry_anddemo.R;
 import com.cherry.librarycommon.utils.ToastUtils;
+import com.cherry.librarypay.PayActivity;
 import com.cherry.libraryshop.ShopActivity;
 
 public class ModuleTestActivity extends AppCompatActivity {
@@ -27,6 +28,7 @@ public class ModuleTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ToastUtils.toast(ModuleTestActivity.this,"gotopay");
+                startActivity(new Intent(ModuleTestActivity.this, PayActivity.class));
             }
         });
 

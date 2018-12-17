@@ -22,5 +22,5 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="63dp"
         android:layout_marginTop="66dp"
-        android:text="pay" />
+        android:text="pay 跳转到shop" />
 </RelativeLayout>
