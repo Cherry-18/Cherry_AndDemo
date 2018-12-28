@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.cherry.cherry_anddemo.ui.androidnewfeature.RippleDrawableActivity;
 import com.cherry.cherry_anddemo.ui.interview.activity.IntentActivity;
 import com.cherry.cherry_anddemo.ui.interview.activity.LifecycleActivity;
 import com.cherry.cherry_anddemo.ui.interview.asynctask.AsyncTaskActivity;
@@ -111,6 +112,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this, ModuleTestActivity.class);
+                startActivity(intent);
+
+            }
+        });
+        findViewById(R.id.btn_ripple_activity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this, RippleDrawableActivity.class);
                 startActivity(intent);
 
             }

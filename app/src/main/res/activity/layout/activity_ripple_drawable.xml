@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:alignmentMode="alignBounds"
+        android:columnCount="2"
+        android:useDefaultMargins="true">
+
+        <TextView
+            android:id="@+id/ripple_with_no_mask_tv"
+            android:layout_gravity="fill"
+            android:background="@drawable/drawable_ripple_with_no_mask"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp"
+            android:text="ripple_with_no_mask" />
+
+        <TextView
+            android:id="@+id/ripple_with_white_mask_tv"
+            android:layout_gravity="fill"
+            android:background="@drawable/drawable_ripple_with_white_mask"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp"
+            android:clickable="true"
+            android:text="ripple_with_white_mask" />
+
+        <TextView
+            android:id="@+id/ripple_with_black_mask_tv"
+            android:layout_gravity="fill"
+            android:background="@drawable/drawable_ripple_with_black_mask"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp"
+            android:clickable="true"
+            android:text="ripple_with_black_mask" />
+
+        <TextView
+            android:id="@+id/ripple_with_picture_mask_tv"
+            android:layout_gravity="fill"
+            android:background="@drawable/drawable_ripple_with_picture_mask"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp"
+            android:clickable="true"
+            android:text="ripple_with_picture_mask" />
+
+        <TextView
+            android:id="@+id/ripple_with_shape_mask_tv"
+            android:layout_gravity="fill"
+            android:background="@drawable/drawable_ripple_with_shape_mask"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp"
+            android:clickable="true"
+            android:text="ripple_with_shape_mask" />
+
+        <ImageView
+            android:id="@+id/ripple_with_selector_mask_tv"
+            android:layout_gravity="fill"
+            android:background="@drawable/drawable_ripple_with_selector_mask"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="20dp"
+            android:clickable="true"/>
+    </GridLayout>
+
+</LinearLayout>

@@ -93,7 +93,8 @@
         <activity android:name=".ui.moduletest.ModuleTestActivity" />
         <activity android:name=".test.MainActivity33" />
         <activity android:name=".test.MainActivity23" />
-        <activity android:name="com.cherry.common.MainooActivity"></activity>
+        <activity android:name="com.cherry.common.MainooActivity" />
+        <activity android:name=".ui.androidnewfeature.RippleDrawableActivity"></activity>
     </application>
 
 </manifest>
