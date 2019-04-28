@@ -24,13 +24,13 @@ import com.cherry.cherry_anddemo.ui.moduletest.ModuleTestActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mLeakTv;
+//    private TextView mLeakTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cherry_activity_main);
-        mLeakTv = findViewById(R.id.tv_Leak);
+//        mLeakTv = findViewById(R.id.tv_Leak);
         findViewById(R.id.tv_js_android).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,13 +136,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void leakcanary(){
-        LeakSingle.getInstance(this.getApplication()).setRetainedTextView(mLeakTv);
+//        LeakSingle.getInstance(this.getApplication()).setRetainedTextView(mLeakTv);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         //防止内泄露
-        LeakSingle.getInstance(this.getApplication()).removeRetainedTextView();
+//        LeakSingle.getInstance(this.getApplication()).removeRetainedTextView();
     }
 }

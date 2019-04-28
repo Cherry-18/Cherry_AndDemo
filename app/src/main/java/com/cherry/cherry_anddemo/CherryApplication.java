@@ -8,7 +8,6 @@ import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.cherry.cherry_anddemo.ui.interview.database.greendao.gen.DaoMaster;
 import com.cherry.cherry_anddemo.ui.interview.database.greendao.gen.DaoSession;
-import com.squareup.leakcanary.LeakCanary;
 
 
 public class CherryApplication extends Application {
@@ -28,7 +27,7 @@ public class CherryApplication extends Application {
 //        SDKInitializer.setCoordType(CoordType.BD09LL);
 
         application = this;
-        LeakCanary.install(this);
+//        LeakCanary.install(this);
         if (true) {           // These two lines must be written before init, otherwise these configurations will be invalid in the init process
             ARouter.openLog();     // Print log
             ARouter.openDebug();   // Turn on debugging mode (If you are running in InstantRun mode, you must turn on debug mode! Online version needs to be closed, otherwise there is a security risk)
